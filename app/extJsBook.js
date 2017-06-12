@@ -1,0 +1,10 @@
+Ext.define('app.extJsBook',{
+								config:{
+										title:'',
+										price:'',
+										author:''
+										},
+								constructor:function(config){
+									this.initConfig(config)
+								}
+							});
