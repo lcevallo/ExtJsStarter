@@ -1,0 +1,4 @@
+[{name:'David',email:'david@motorola.com',age:32,employed:true},
+{name:'Jonny',email:'jonny@sencha.com',age:20,employed:false},
+{name:'Anthony',email:'anthony@google.com',age:42.5,employed:true},
+{name:'Steffi',email:'steffi@facebook.com',age:26,employed:true}]

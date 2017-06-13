@@ -1,32 +1,85 @@
 Ext.application({
 name :'app',
-requires:['Ext.window.MessageBox','app.extJsBook'],
+requires:['Ext.window.MessageBox','app.extjsButton','app.model.Users'],
 
 launch:function(){
 
 
 
-var book= Ext.create('app.extJsBook');
-book.setTitle("ExtJSStarter");
-book.setPrice("10$");
-book.setAuthor('Luis Cevallos');
 
-console.log("Message 1 -",book.getTitle());
-//This message will be overridden by the second message
-Ext.Msg.alert("Message 1 -",book.getTitle());
+	var extJS_UserGrid = Ext.create('Ext.grid.Panel',{
+														title:'Ext JS Users List',
+														store:extJS_UserStore, //created in previous chapter
+														columns:[
+																	{header:'Name',dataIndex:'name'},
+																	{header:'Age',dataIndex:'age',width:30},
+																	{header:'Employed',dataIndex:'employed'},
+																	{header:'Email',dataIndex:'email',flex:1}
+																]
+													}
+									);
+
+/*
+var extjsBookPanel= Ext.create('Ext.panel.Panel',{
+													bodyPadding: 5,
+													width:300,
+													title: 'extjsBookPanel',
+													items:[
+															{
+
+																xtype: 'textfield',
+																fieldLabel: 'Publish date'
+															},
+															Ext.create('app.extjsButton',{
+																							text:'Custom button instantiated using Ext.Create()'
+
+																						 }
+																	  ),
+															{
+																xtype:'extjsButton',
+																text: 'Custom button instantiated using xtype'
+															}
+
+														  ],
+														  renderTo: Ext.getBody()
 
 
-//Setting values during instantiation
+													}
+								);
+	*/
 
-var book2=Ext.create('app.extJsBook',{
-										title:'Ext JS Upgrade',
-										author: 'Alex',
-										price:'20$'
-									}
-					);
 
-Ext.Msg.alert("Message 2 -",book2.getTitle());
+	Ext.create('Ext.tab.Panel',{
 
+								 width: 400,
+								 height: 200,
+								 dockedItems:[
+								 				{
+								 					xtype:'toolbar',
+								 					dock:'bottom',
+								 					items:[{text:'Docked Button'}]
+
+								 				}
+								 			 ],
+								 renderTo: document.body,
+								 items:[
+								 		{
+								 			title : 'Page 1',
+								 			items:[
+								 					extJS_UserGrid
+								 				 ]
+
+								 		},
+								 		{
+								 			xtype:'panel',
+								 			title : 'Page 2',
+								 			html:'Page2'
+
+								 		}
+								 	   ]
+
+								}
+			 );
 
 }
 });

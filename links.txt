@@ -1,1 +1,2 @@
 http://localhost/ExtjsStarter/
+http://localhost/ExtjsStarter/mvcApp.html
